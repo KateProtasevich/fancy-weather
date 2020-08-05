@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/icons-weather.css">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.js"></script>
+<link href="https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.css" rel="stylesheet" />
+
+    <title>Fancy Weather</title>
+</head>
+<body>
+   <div class="loading " id="loading">
+     <img src="assets/images/tornado.svg" width="200">
+   </div>
+    <div class="app-wrapper">
+        <div class="control-block">
+            <div class="control-switches__wrapper">
+                <button class="control-switch bg-image-btn" type="button" id="bg-image-btn"><img src="assets/images/refresh_icon.svg"></button>
+                <select class="lang-droplist control-switch" id="lang-droplist">
+                    <option>en</option>
+                    <option>ru</option>
+                    <option>be</option>
+                </select>
+                <div class="temp-switch__wrapper control-switch">
+                    <label  id="fahrenheit">
+                        <input name="temp" value="F" type="radio" class="temp-deg">
+                        <span>&deg;F</span>
+                    </label>
+                    <label  id="celsius">
+                        <input name="temp" value="C" type="radio" checked class="temp-deg">
+                        <span>&deg;C</span>
+                    </label>   
+                </div>  
+            </div>
+            <div class="search__wrapper">
+                <div class="search__box">
+                    <input class="search-input" type="text" placeholder="Search city" autofocus="autofocus" id="search-input">
+                    
+                    <button type="button" class="voice-btn"></button>
+                    <button type="submit" class="search-btn" id="search-btn" data-i18n="search">search</button>
+                </div>
+                
+            </div>
+        </div>
+        <div class="weather-geo__wrapper">
+        <div class="weather__wrapper">
+            <div class="weather-today-wrapper weather-day-wrapper">
+                
+                    <h2 class="position" id="location">city, country</h2>
+                    <p class="current-day" id="date">
+                    </p>   
+                
+                <div class="weather-today weather">
+                    <div class="weather-today__temp" ><span class="today__temp-cont"><span id="today-temp" data-temp=""></span>&deg;</span></div>
+                    <div class="weather-description">
+                        <div class="weather-image div" id="today-weather-image-wrapper">
+                            <img id="today-weather-image" src="/">
+                        </div>
+                        <div class="weather-inform" id="today-weather-inform">
+                            <p><span id="today-weather-description" ></span></p>
+                            <p><span data-i18n="feels-like"></span>: <span id="feels-like"></span>&deg;</p>
+                            <p><span data-i18n="wind"></span>: <span id="wind"></span> <span data-i18n="wind-units"></span></p>
+                            <p><span data-i18n="humidity"></span>: <span id="humidity"></span>%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="weather-3days-wrapper">
+                <div class="weather-3days weather-day-wrapper">
+                    <h4 class="weather-3days__weekday" id="weekday1">weekday</h4>
+                    <div class="weather-forecast ">
+                        <div class="weather-temp" ><span id="day1-temp" data-temp="">0</span>&deg;</div>
+                        
+                            <div class="weather-image weather-3days-image div" id="day1-weather-image-wrapper"><img id="day1-weather-image" class="day-weather-image" src="http://openweathermap.org/img/wn/04n@2x.png"></div>
+                            
+                        
+                    </div>
+                </div> 
+                <div class="weather-3days weather-day-wrapper">
+                    <h4 class="weather-3days__weekday" id="weekday2">weekday</h4>
+                    <div class="weather-forecast ">
+                        <div class="weather-temp" ><span id="day2-temp" data-temp="">0</span>&deg;</div>
+                        
+                            <div class="weather-image weather-3days-image div" id="day2-weather-image-wrapper"><img id="day2-weather-image" class="day-weather-image" src="http://openweathermap.org/img/wn/04n@2x.png"></div>
+                            
+                        
+                    </div>
+                </div>
+                <div class="weather-3days weather-day-wrapper">
+                    <h4 class="weather-3days__weekday" id="weekday3">weekday</h4>
+                    <div class="weather-forecast ">
+                        <div class="weather-temp" ><span id="day3-temp" data-temp="">0</span>&deg;</div>
+                        
+                            <div class="weather-image weather-3days-image div" id="day3-weather-image-wrapper"><img id="day3-weather-image" class="day-weather-image" src="http://openweathermap.org/img/wn/04n@2x.png"></div>
+                            
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="geolocation">
+            <div class="map-container">
+                <div id="map" class="mask"></div>
+            </div>
+            <div class="geolocation-data">
+                <p><span data-i18n="latitude" id="latitude-name" >Latitude: </span>: <span id="latitude"></span></p>
+                <p><span data-i18n="longitude">Longitude: </span>: <span id="longitude"></span></p>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="script.js" type="module"></script>
+</body>
+</html>

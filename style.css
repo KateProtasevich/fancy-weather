@@ -1,0 +1,360 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+background-image: url(assets/images/1573388123_nesvizh-zamok-belarus-3.jpg);
+background-size: cover;
+font-family:Arial,Helvetica,sans-serif;
+color: white;
+position: relative;
+object-fit: contain;
+font-size: 1rem;
+}
+
+.loading {
+position: absolute;
+width: 100%;
+height: 100vh;
+background-color: rgba(76,82,85,1);
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+z-index: 10;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.app-wrapper {
+  min-width: 320px;
+  max-width: 1440px;
+  padding: 30px;
+
+  margin: 0 auto;
+  background-color: rgba(76,82,85,.7);
+}
+.weather-geo__wrapper {
+  display: flex;
+}
+
+.control-block {
+  display: flex;
+  flex-direction: row;
+  padding: 10px 0px;
+  width: 100%;
+}
+
+.control-switches__wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  width: 61%;
+  padding: 0 20px;
+}
+
+.control-switch {
+  height: 44px;
+  border: 1px solid white;
+  font-weight:700;
+  font-size:14px;
+  line-height:44px;
+  text-align:center;
+  color:#fff;
+  background-color:rgba(109, 117, 121, 0.6);
+  cursor:pointer;
+  border-radius: 5px;
+  text-transform:uppercase;
+}
+
+
+
+.bg-image-btn {
+  width: 44px;
+  background-image: url(assets/images/change-bg-btn.png);
+  
+  line-height: 0;
+}
+
+
+
+@keyframes bgcolor {
+  0% {
+      background: radial-gradient(rgb(110, 108, 222),rgb(15, 14, 87));     
+      }
+      
+  50% {
+      background: radial-gradient(rgb(126, 124, 224),rgb(25, 24, 92));    
+      }
+      
+  100% {
+      background: radial-gradient(rgb(166, 165, 226),rgb(39, 38, 88));        
+      }
+    }
+    
+button:active {
+  width: 44px;
+  animation: bgcolor 0.7s ease;
+  animation-iteration-count: infinite;  
+}
+
+.bg-image-btn:hover,
+.lang-droplist:hover,
+.temp-switch__wrapper span:hover,
+input[type="radio"]:checked ~ span:hover,
+.search-btn:hover {
+  background-color:rgba(27, 125, 173, 0.9);
+  cursor: pointer;
+}
+
+.lang-droplist {
+  width: 71px;
+  padding-left: 12px;
+  margin: 0 10px;
+}
+.temp-switch__wrapper {
+  font-size: 0;
+  
+}
+.temp-switch__wrapper span,
+.temp-switch__wrapper label {
+  display: inline-block;
+  width: 44px;
+  font-size:14px;
+}
+#fahrenheit span {
+  border-right: 1px solid white;
+  border-radius: 5px 0 0 5px;
+}
+#celsius span {
+  border-radius: 0 5px 5px 0;
+}
+input[type="radio"] {
+  display: none;
+}
+input[type="radio"]:checked ~ span {
+  background-color:rgba(6, 30, 44, 0.8);
+}
+.search__wrapper {
+width: 39%;
+padding: 0 20px;
+}
+.search__box {
+  height: 44px;
+  border: 1px solid white;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.search-input {
+  width: calc(100% - 50px);
+  height: 100%;
+  font-weight:500;
+  font-size:1.4rem;
+  line-height:4.4rem;
+  color:#fff;
+  background-color:rgba(76,82,85,.4);
+  padding-left: 10px;
+}
+.search-input::placeholder {
+  font-weight:500;
+  font-size:1.4rem;
+  line-height:4.4rem;
+  color:#fff;
+}
+
+.voice-btn {
+  width: 44px;
+  height: 100%;
+  background: rgba(76,82,85,.4) url(assets/images/voice_icon.svg) no-repeat center center;
+  cursor:pointer;
+}
+.search-btn {
+  max-width: 101px;
+  flex-basis: 101px;
+  height: 100%;
+  font-weight:700;
+  font-size:1.4rem;
+  line-height:4.4rem;
+  text-align:center;
+  color:#fff;
+  background-color:rgba(76,82,85,.6);
+  background-color:rgba(109, 117, 121, 0.6);
+  cursor:pointer;
+  text-transform:uppercase;
+}
+
+.weather__wrapper {
+  width: 61%;
+  padding: 20px 20px;
+}
+.geolocation {
+  width: 39%;
+  padding: 20px 20px;
+}
+
+.position {
+  font-size: 4.4rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.current-day {
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 10px;
+}
+.current-day::first-letter {
+  text-transform: uppercase;
+}
+
+.weather-today__temp {
+  font-size: 20.0rem;
+  font-weight: bold;
+  /*width: 70%;*/
+  flex: 1 0;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+
+.weather {
+  display: flex;
+}
+
+.weather-description {
+  width: 220px;
+}
+
+.weather-inform {
+  font-size: 2.0rem;
+  line-height: 3.7rem;
+  text-transform: uppercase;
+}
+
+#wind + span {
+  text-transform: lowercase;
+}
+.weather-3days-wrapper {
+  display: flex;
+  padding: 10px 0;
+  margin-top: 30px;
+}
+
+.weather-3days {
+  width: 33.3%;
+}
+
+.weather-3days__weekday {
+  text-transform: uppercase;
+  font-size: 2.2rem;
+}
+.weather-temp {
+  font-size: 8.0rem;
+}
+
+.weather-forecast {
+  padding: 10px 0;
+  display: flex;
+  align-items: flex-end;
+}
+
+#map { 
+  width: 100%;
+  height: 500px; 
+}
+
+.geolocation-data {
+  font-size: 2.0rem;
+  line-height: 3.0rem;
+  text-align: right;
+}
+
+
+.mask {
+  
+  clip-path: polygon(0 20px, 20px 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, calc(100% - 20px) calc(100% - 20px), 20px calc(100% - 20px), 0 calc(100% - 40px));
+  
+}
+
+@media (max-width: 1019px) {
+  .weather-geo__wrapper {
+    flex-direction: column;
+  }
+
+  .weather__wrapper {
+    width: 100%;
+  }
+
+  .geolocation {
+    width: 100%;
+  }
+  .control-block {
+    flex-direction: column;
+  }
+
+  .search__wrapper {
+    width: 100%;
+    margin-top: 30px;
+  }
+
+  .control-switches__wrapper {
+    
+    width: 100%;
+    
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 8px;
+  }
+
+  .weather-3days-wrapper {
+    flex-direction: column;
+  }
+  .weather-3days {
+    width: 100%;
+    text-align: center;
+  }
+
+  .weather-forecast {
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  .weather-today {
+    flex-direction: column;
+  }
+}
+
+.day-weather-image {
+  width: 100px;
+  height: 100px;
+  align-self: start;
+}
+
+
+
+
+
+
+
